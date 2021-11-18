@@ -51,7 +51,7 @@ export class TranslatesComponent {
 			}
 		}
 	}
-	translate(slug, translate){
+	translate(slug:any, translate:any){
 		console.log(this.lang);
 		this.http.afterWhile(this, ()=>{
 			this.http.post('/api/translate/create', {
@@ -64,7 +64,7 @@ export class TranslatesComponent {
 		})
 		
 	}
-	delete(word_id, translate_id){
+	delete(word_id:any, translate_id:any){
 		for (let i = this.words.length-1; i >= 0; i--){
 		    if(this.words[i]._id==word_id) this.words.splice(i, 1);
 		}

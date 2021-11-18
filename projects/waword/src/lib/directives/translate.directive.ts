@@ -6,7 +6,7 @@ import { TranslateService } from '../services/translate.service';
 })
 export class TranslateDirective implements OnInit {
 	constructor(public elementRef: ElementRef, private tr: TranslateService) {}
-	ngOnInit(){
+	ngOnInit():any {
 		if(!this.tr.translates){
 			return setTimeout(()=>{
 				this.ngOnInit();

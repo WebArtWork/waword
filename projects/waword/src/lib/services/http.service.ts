@@ -14,13 +14,13 @@ export class HttpService {
 		private http: HttpClient){
 		if(this.config.url) this.url = this.config.url;
 	}
-	post(url, doc, callback=(resp:any) => {}){
+	post(url:any, doc:any, callback=(resp:any) => {}){
 		this.http.post<any>(this.url+url, doc).subscribe(callback);
 	}
-	get(url, callback=(resp:any) => {}){
+	get(url:any, callback=(resp:any) => {}){
 		this.http.get<any>(this.url+url).subscribe(callback);
 	}
-	afterWhile(doc, cb, time=1000){
+	afterWhile(doc:any, cb:any, time=1000){
 		if(typeof cb == 'function' && typeof time == 'number'){
 			clearTimeout(doc.__updateTimeout);
 			doc.__updateTimeout = setTimeout(cb, time);

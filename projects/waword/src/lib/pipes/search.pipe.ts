@@ -27,7 +27,7 @@ export class SearchPipe implements PipeTransform {
 			if(l && Array.isArray(given)) return given.slice(0, l);
 			else return given||[];
 		}
-		let _arr = [], _check = {};
+		let _arr:any = [], _check:any = {};
 		if(!Array.isArray(s)&&typeof s == 'object'){
 			let _s = [];
 			for(let key in s){
@@ -40,7 +40,7 @@ export class SearchPipe implements PipeTransform {
 		}
 		if(!f) f = ['name'];
 		if(typeof f == 'string') f = f.split(' ');
-		let sub_test = function(obj, _f, initObj, check){
+		let sub_test = function(obj:any, _f:any, initObj:any, check:any):any {
 			if(!obj) return;
 			if(_f.indexOf('.')>-1){
 				let sub = _f.split('.');
@@ -67,7 +67,7 @@ export class SearchPipe implements PipeTransform {
 				if(b) break;
 			}
 		}
-		let test = function(obj, check) {
+		let test = function(obj:any, check:any) {
 			for (let i = 0; i < f.length; i++) {
 				sub_test(obj, f[i], obj, check);
 			}

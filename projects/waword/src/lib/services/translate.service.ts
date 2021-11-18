@@ -5,9 +5,10 @@ import { HttpService } from './http.service';
 	providedIn: 'root'
 })
 export class TranslateService {
+	public storage_translates: any = localStorage.getItem('translates')
 	public language = 'ua';
 	public languages:any = [];
-	public translates:any=localStorage.getItem('translates')&&JSON.parse(localStorage.getItem('translates'))||{};
+	public translates:any=localStorage.getItem('translates')&&JSON.parse(this.storage_translates)||{};
 	constructor(@Inject(CONFIG_TOKEN) @Optional() private config: Config,
 		private http: HttpService) {
 		if(this.config.languages) this.languages = this.config.languages;
@@ -16,7 +17,7 @@ export class TranslateService {
 			localStorage.setItem('translates', JSON.stringify(this.translates));
 		})
 	}
-	translate(slug, cb=()=>{}){
+	translate(slug:any, cb=()=>{}){
 		if(!slug) return '';
 		if(this.translates[this.language]&&this.translates[this.language][slug]){
 			return this.translates[this.language][slug];
@@ -39,7 +40,7 @@ export class TranslateService {
 			link.remove();
 		})
 	}
-	set_language(language){
+	set_language(language:any){
 		this.language = language;
 	}
 	set_language_content(){
