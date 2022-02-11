@@ -13,14 +13,13 @@ import { CONFIG_TOKEN, Config, DEFAULT_CONFIG } from './interfaces/config';
 import { TranslatesComponent } from './components/translates/translates.component';
 
 @NgModule({
-	imports: [ CommonModule, FormsModule, HttpClientModule ],
-	declarations: [ TranslatePipe, TranslateDirective, TranslatesComponent, SearchPipe],
-	exports: [ TranslatePipe, TranslateDirective, TranslatesComponent ],
-	entryComponents: [ TranslatesComponent ],
-	providers: [{
-		provide: CONFIG_TOKEN,
-		useValue: DEFAULT_CONFIG
-	}]
+    imports: [CommonModule, FormsModule, HttpClientModule],
+    declarations: [TranslatePipe, TranslateDirective, TranslatesComponent, SearchPipe],
+    exports: [TranslatePipe, TranslateDirective, TranslatesComponent],
+    providers: [{
+            provide: CONFIG_TOKEN,
+            useValue: DEFAULT_CONFIG
+        }]
 })
 export class WawordModule {
 	static forRoot(config: Config = DEFAULT_CONFIG): ModuleWithProviders<any> {
